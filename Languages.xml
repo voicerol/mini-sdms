@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<translation>
+    <languageList>
+        <language description="English" lang="ENG" />
+        <language description="Russian" lang="RU" />
+    </languageList>
+    <key value="sms">
+        <val lang="ENG">Student Database Management System</val>
+        <val lang="RU">Система Управления Базой данных Студентов</val>
+    </key>
+    <key value="connectText">
+        <val lang="ENG">Connect to a database:</val>
+        <val lang="RU">Подключитесь к базе данных:</val>
+    </key>
+    <key value="loginText">
+        <val lang="ENG">Login</val>
+        <val lang="RU">Логин:</val>
+    </key>
+    <key value="passwordText">
+        <val lang="ENG">Password:</val>
+        <val lang="RU">Пароль:</val>
+    </key>
+    <key value="databaseUrlText">
+        <val lang="ENG">Database URL:</val>
+        <val lang="RU">URL-адрес базы данных:</val>
+    </key>
+    <key value="connectButton">
+        <val lang="ENG">Connect</val>
+        <val lang="RU">Подключиться</val>
+    </key>
+    <key value="error">
+        <val lang="ENG">Error</val>
+        <val lang="RU">Ошибка</val>
+    </key>
+    <key value="success">
+        <val lang="ENG">Success</val>
+        <val lang="RU">Успех</val>
+    </key>
+    <key value="fillEmptyFields">
+        <val lang="ENG">Please, fill in all the empty fields!</val>
+        <val lang="RU">Пожалуйста, заполните все пустые поля!</val>
+    </key>
+    <key value="connectionEstablished">
+        <val lang="ENG">Connection with the database has been successfully established! </val>
+        <val lang="RU">Соединение с базой данных успешно установлено!</val>
+    </key>
+    <key value="connectionNotEstablished">
+        <val lang="ENG">Connection with the database hasn't been established</val>
+        <val lang="RU">Соединение с базой данных не было установлено! Проверьте введенные данные!</val>
+    </key>
+    <key value="changeLanguage">
+        <val lang="ENG">Change language</val>
+        <val lang="RU">Изменить язык</val>
+    </key>
+    <key value="selectLanguage">
+        <val lang="ENG">Select a language</val>
+        <val lang="RU">Выберите язык</val>
+    </key>
+    <key value="ID">
+        <val lang="ENG">ID</val>
+        <val lang="RU">ID</val>
+    </key>
+    <key value="name">
+        <val lang="ENG">Name</val>
+        <val lang="RU">Имя</val>
+    </key>
+    <key value="surname">
+        <val lang="ENG">Surname</val>
+        <val lang="RU">Фамилия</val>
+    </key>
+    <key value="age">
+        <val lang="ENG">Age</val>
+        <val lang="RU">Возраст</val>
+    </key>
+    <key value="gender">
+        <val lang="ENG">Gender</val>
+        <val lang="RU">Пол</val>
+    </key>
+    <key value="course">
+        <val lang="ENG">Course</val>
+        <val lang="RU">Курс</val>
+    </key>
+    <key value="started">
+        <val lang="ENG">Started</val>
+        <val lang="RU">Начал</val>
+    </key>
+    <key value="graduation">
+        <val lang="ENG">Graduation</val>
+        <val lang="RU">Выпускной</val>
+    </key>
+    <key value="add">
+        <val lang="ENG">Add</val>
+        <val lang="RU">Добавить</val>
+    </key>
+    <key value="update">
+        <val lang="ENG">Update</val>
+        <val lang="RU">Обновить</val>
+    </key>
+    <key value="delete">
+        <val lang="ENG">Delete</val>
+        <val lang="RU">Удалить</val>
+    </key>
+    <key value="disconnect">
+        <val lang="ENG">Disconnect</val>
+        <val lang="RU">Отключиться</val>
+    </key>
+    <key value="exit">
+        <val lang="ENG">Exit</val>
+        <val lang="RU">Выход</val>
+    </key>
+    <key value="yearFormat">
+        <val lang="ENG">YYYY-MM-DD</val>
+        <val lang="RU">ГГГГ-ММ-ДД</val>
+    </key>
+    <key value="addFaculty">
+        <val lang="ENG">Add faculty</val>
+        <val lang="RU">Добавить факультет</val>
+    </key>
+    <key value="addCourse">
+        <val lang="ENG">Add course</val>
+        <val lang="RU">Добавить курс</val>
+    </key>
+    <key value="deleteFaculty">
+        <val lang="ENG">Delete faculty</val>
+        <val lang="RU">Удалить факультет</val>
+    </key>
+    <key value="deleteCourse">
+        <val lang="ENG">Delete course</val>
+        <val lang="RU">Удалить курс</val>
+    </key>
+    <key value="checkInput">
+        <val lang="ENG">An error has occured! Check your input one more time!</val>
+        <val lang="RU">Произошла ошибка! Проверьте введёную информацию еще раз!</val>
+    </key>
+    <key value="noStudentSelected">
+        <val lang="ENG">No student has been selected!</val>
+        <val lang="RU">Ни один студент не выбран!</val>
+    </key>
+    <key value="warningDelete">
+        <val lang="ENG">Deleting a student from the table may result in losing important information. Are you sure?</val>
+        <val lang="RU">Удаление студента из таблицы может привести к потере важной информации. Вы уверены?</val>
+    </key>
+    <key value="studentSuccessfullyDeleted">
+        <val lang="ENG">Student successfully deleted!</val>
+        <val lang="RU">Студент успешно удален!</val>
+    </key>
+    <key value="somethingWrongInput">
+        <val lang="ENG">Something went wrong! Check your credentials!</val>
+        <val lang="RU">Что-то пошло не так! Проверьте введёные данные!</val>
+    </key>
+    <key value="somethingWrongUnexpected">
+        <val lang="ENG">Something went wrong! Try restarting the application!</val>
+        <val lang="RU">Что-то пошло не так! Попробуйте перезапустить приложение!</val>
+    </key>
+    <key value="somethingWrongTryAgain">
+        <val lang="ENG">Something went wrong! Try Again!</val>
+        <val lang="RU">Что-то пошло не так! Попробуйте еще раз!</val>
+    </key>
+    <key value="cannotAddStudent">
+        <val lang="ENG">You can't add a student yet! Add a faculty and a course first!</val>
+        <val lang="RU">Вы еще не можете добавить студента! Добавьте факультет и хотя-бы один курс первее!</val>
+    </key>
+    <key value="dateFormatError">
+        <val lang="ENG">Please type a correct data according to the format YYYY-MM-DD!</val>
+        <val lang="RU">Пожалуйста, введите правильные данные в соответствии с форматом ГГГГ-ММ-ДД!</val>
+    </key>
+    <key value="dateFormat">
+        <val lang="ENG">YYYY-MM-DD</val>
+        <val lang="RU">ГГГГ-ММ-ДД</val>
+    </key>
+    <key value="studentSuccessfullyAdded">
+        <val lang="ENG">The student has been added successfully!</val>
+        <val lang="RU">Студент успешно добавлен!</val>
+    </key>
+    <key value="confirmDialog">
+        <val lang="ENG">Are you sure?</val>
+        <val lang="RU">Вы уверены?</val>
+    </key>
+    <key value="typeNameFaculty">
+        <val lang="ENG">Type the name of the faculty:</val>
+        <val lang="RU">Введите название факультета:</val>
+    </key>
+    <key value="emptyNameFaculty">
+        <val lang="ENG">The faculty hasn't been added! Please type a name for it!</val>
+        <val lang="RU">Факультет не добавлен! Пожалуйста, введите имя для него</val>
+    </key>
+    <key value="facultyAlreadyExists">
+        <val lang="ENG">The faculty hasn't been added! The faculty already exists!</val>
+        <val lang="RU">Факультет не добавлен! Факультет уже существует!</val>
+    </key>
+    <key value="facultySuccessfullyAdded">
+        <val lang="ENG">The faculty has been successfully added!</val>
+        <val lang="RU">Факультет успешно добавлен!</val>
+    </key>
+    <key value="facultyNotAdded">
+        <val lang="ENG">The faculty hasn't been added! Try again!</val>
+        <val lang="RU">Факультет не добавлен! Повторите попытку!</val>
+    </key>
+    <key value="cannotAddCourse">
+        <val lang="ENG">You can't add a course! Add a faculty first</val>
+        <val lang="RU">Вы не можете добавить курс! Сначала добавьте факультет</val>
+    </key>
+    <key value="typeNameCourse">
+        <val lang="ENG">Type the name of the course:</val>
+        <val lang="RU">Введите название курса</val>
+    </key>
+    <key value="emptyNameCourse">
+        <val lang="ENG">The course hasn't been added! Please type a name for it!</val>
+        <val lang="RU">Курс не добавлен! Пожалуйста, введите название для него!</val>
+    </key>
+    <key value="chooseFaculty">
+        <val lang="ENG">Choose the faculty for the course</val>
+        <val lang="RU">Выберите факультет для курса</val>
+    </key>
+    <key value="courseNotAddedNoFaculty">
+        <val lang="ENG">The course hasn't been added! Please select a faculty for it or add a new one!</val>
+        <val lang="RU">Курс не добавлен! Пожалуйста, выберите факультет для него или добавьте новый!</val>
+    </key>
+    <key value="courseTypeDuration">
+        <val lang="ENG">Type the duration of the course(months)</val>
+        <val lang="RU">Введите продолжительность курса (в месяцах)</val>
+    </key>
+    <key value="courseNotAddedNoDuration">
+        <val lang="ENG">The course hasn't been added! Please type the duration of the course without using other characters than digits!</val>
+        <val lang="RU">Курс не добавлен! Пожалуйста, введите продолжительность курса без использования других символов, кроме цифр!</val>
+    </key>
+    <key value="courseAlreadyExists">
+        <val lang="ENG">The course hasn't been added! The course already exists!</val>
+        <val lang="RU">Курс не добавлен! Курс уже существует!</val>
+    </key>
+    <key value="courseSuccessfullyAdded">
+        <val lang="ENG">The course has been successfully added!</val>
+        <val lang="RU">Курс успешно добавлен!</val>
+    </key>
+    <key value="courseNotAdded">
+        <val lang="ENG">The course hasn't been added! Try again!</val>
+        <val lang="RU">Курс не добавлен! Попробуйте еще раз!</val>
+    </key>
+    <key value="chooseFacultyDelete">
+        <val lang="ENG">Choose the faculty to delete</val>
+        <val lang="RU">Выберите факультет для удаления</val>
+    </key>
+    <key value="chooseCourseDelete">
+        <val lang="ENG">Choose the course to delete</val>
+        <val lang="RU">Выберите курс для удаления</val>
+    </key>
+    <key value="facultyDeleted">
+        <val lang="ENG">The faculty has been deleted successfully!</val>
+        <val lang="RU">Факультет успешно удален!</val>
+    </key>
+    <key value="courseDeleted">
+        <val lang="ENG">The course has been deleted successfully!</val>
+        <val lang="RU">Курс успешно удален!</val>
+    </key>
+    <key value="deleteFacultyWithCourses">
+        <val lang="ENG">You can't delete a faculty that has courses! Do you wish to delete all the courses and students attending these courses in that faculty?</val>
+        <val lang="RU">Вы не можете удалить факультет, который имеет курсы! Вы хотите удалить все курсы и студентов, посещающих этот курс?</val>
+    </key>
+    <key value="coursesFromFacultySuccessfullyDeleted">
+        <val lang="ENG">All courses and students from the selected faculty have been deleted successfully!</val>
+        <val lang="RU">Все курсы и студенты, посещающие выбранный факультет, были успешно удалены!</val>
+    </key>
+</translation>
