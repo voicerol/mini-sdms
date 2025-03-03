@@ -1,17 +1,15 @@
-package org.sdms;
+package org.sdms.Model;
 
 import java.util.Date;
 
-enum Gender {
-    Male, Female
-}
-
 /**
  * The class that holds and manages the information about students
- *
- *
  */
 public class Student {
+
+    public enum Gender {
+        Male, Female
+    }
     /**
      * The name of the student
      */
