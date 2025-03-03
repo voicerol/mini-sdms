@@ -1,4 +1,7 @@
-package org.sdms;
+package org.sdms.View;
+
+import org.sdms.Model.DBHandler;
+import org.sdms.Controller.Translator;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -43,7 +46,8 @@ public class ConnectionView {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 // Reading messages in dependance of the selected language(by default ENG)
-                Translator.setLanguage(Language.ENG);
+                Translator.setLanguage(Translator.Language.ENG);
+
                 Translator.getMessagesFromXML();
 
                 try {
@@ -130,14 +134,22 @@ public class ConnectionView {
         // Actions to perform when "Change language" button is clicked
         changeLanguageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Language selectedLanguage = (Language) JOptionPane.showInputDialog(null, Translator.getValue("sms"),
-                        Translator.getValue("selectLanguage"), JOptionPane.QUESTION_MESSAGE, null, Language.values(),
-                        Language.ENG.toString());
+                // Используем полный путь для обращения к перечислению Language
+                Translator.Language selectedLanguage = (Translator.Language) JOptionPane.showInputDialog(
+                        null,
+                        Translator.getValue("sms"),
+                        Translator.getValue("selectLanguage"),
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        Translator.Language.values(), // Исправлено: теперь правильно используем Translator.Language
+                        Translator.Language.ENG.toString() // Исправлено: теперь правильно используем Translator.Language
+                );
 
-                if (selectedLanguage != null)
+                if (selectedLanguage != null) {
                     Translator.setLanguage(selectedLanguage);
-                else
+                } else {
                     return;
+                }
 
                 Translator.getMessagesFromXML();
 
