@@ -78,7 +78,7 @@ public class ConnectionView {
         connectionFrame.setBounds(100, 100, 640, 480);
         connectionFrame.setResizable(false);
         connectionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        connectionFrame.setTitle(Translator.getValue("sms"));
+        connectionFrame.setTitle(Translator.getValue("sdms"));
 
         // The blue-colored panel in the top part of the application
         JPanel topPanel = new JPanel();
@@ -88,7 +88,7 @@ public class ConnectionView {
         // The text that informs the user that they have to connect to a database
         JLabel connectText = new JLabel(Translator.getValue("connectText"));
         connectText.setForeground(new Color(255, 255, 255));
-        connectText.setFont(new Font("Tahoma", Font.PLAIN, 25));
+        connectText.setFont(new Font("Verdana", Font.PLAIN, 25));
         topPanel.add(connectText);
 
         // The panel in the bottom part of the application
@@ -98,12 +98,12 @@ public class ConnectionView {
         // The text that informs the user where they have to type the login
         JLabel loginText = new JLabel(Translator.getValue("loginText"));
         loginText.setBounds(68, 134, 162, 25);
-        loginText.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        loginText.setFont(new Font("Verdana", Font.PLAIN, 12));
 
         // The text that informs the user where they have to type the password
         JLabel passwordText = new JLabel(Translator.getValue("passwordText"));
         passwordText.setBounds(68, 174, 162, 25);
-        passwordText.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        passwordText.setFont(new Font("Verdana", Font.PLAIN, 12));
 
         // Initializes the text field where user writes the login
         loginField = new JTextField();
@@ -119,13 +119,13 @@ public class ConnectionView {
         // The field where user should write the database url
         databaseUrlField = new JTextField();
         databaseUrlField.setName("databaseUrlField");
-        databaseUrlField.setText("jdbc:mysql://localhost:3306/studentsdb");
+        databaseUrlField.setText("jdbc:mysql://localhost:3306/");
         databaseUrlField.setColumns(10);
         databaseUrlField.setBounds(240, 96, 330, 20);
 
         // The text that informs user where they have to write database url
         JLabel databaseUrlText = new JLabel(Translator.getValue("databaseUrlText"));
-        databaseUrlText.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        databaseUrlText.setFont(new Font("Verdana", Font.PLAIN, 12));
         databaseUrlText.setBounds(68, 91, 162, 25);
 
         // The button that changes the langauge of the application
@@ -137,7 +137,7 @@ public class ConnectionView {
                 // Используем полный путь для обращения к перечислению Language
                 Translator.Language selectedLanguage = (Translator.Language) JOptionPane.showInputDialog(
                         null,
-                        Translator.getValue("sms"),
+                        Translator.getValue("sdms"),
                         Translator.getValue("selectLanguage"),
                         JOptionPane.QUESTION_MESSAGE,
                         null,
@@ -158,7 +158,7 @@ public class ConnectionView {
             }
         });
 
-        changeLanguageButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        changeLanguageButton.setFont(new Font("Verdana", Font.PLAIN, 12));
         changeLanguageButton.setBounds(480, 365, 135, 25);
         bottomPanel.add(changeLanguageButton);
 
@@ -166,7 +166,7 @@ public class ConnectionView {
         JButton connectButton = new JButton(Translator.getValue("connectButton"));
         connectButton.setName("connectButton");
         connectButton.setBounds(221, 290, 190, 42);
-        connectButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        connectButton.setFont(new Font("Verdana", Font.PLAIN, 20));
 
         // Execute connection and create a table when "Connect" button pressed
         connectButton.addActionListener(new ActionListener() {

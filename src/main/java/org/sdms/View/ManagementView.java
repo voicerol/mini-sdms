@@ -171,14 +171,14 @@ public class ManagementView {
             public void tableChanged(TableModelEvent e) {
                 if (!DBHandler.updateDatabase()) {
                     JOptionPane.showMessageDialog(managementFrame, Translator.getValue("checkInput"),
-                            Translator.getValue("sms"), JOptionPane.ERROR_MESSAGE);
+                            Translator.getValue("sdms"), JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
 
         // The panel where all buttons are located
         JPanel buttonsPanel = new JPanel();
-        buttonsPanel.setBorder(new LineBorder(new Color(0, 120, 215), 5));
+        buttonsPanel.setBorder(new LineBorder(new Color(0, 0, 0, 0), 5));
         buttonsPanel.setBackground(UIManager.getColor("Button.background"));
         buttonsPanel.setBounds(10, 415, 825, 80);
         managementFrame.getContentPane().add(buttonsPanel);
@@ -193,18 +193,18 @@ public class ManagementView {
                 // If no row has been selected
                 if (table.getSelectedRow() == -1) {
                     JOptionPane.showMessageDialog(managementFrame, Translator.getValue("noStudentSelected"),
-                            Translator.getValue("sms"), JOptionPane.ERROR_MESSAGE);
+                            Translator.getValue("sdms"), JOptionPane.ERROR_MESSAGE);
                 } else {
                     // Asking the user if they are sure about that
                     if (JOptionPane.showConfirmDialog(managementFrame, Translator.getValue("warningDelete"),
-                            Translator.getValue("sms"), JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                            Translator.getValue("sdms"), JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                         if (DBHandler.deleteStudent()) {
                             JOptionPane.showMessageDialog(managementFrame,
-                                    Translator.getValue("studentSuccessfullyDeleted"), Translator.getValue("sms"),
+                                    Translator.getValue("studentSuccessfullyDeleted"), Translator.getValue("sdms"),
                                     JOptionPane.INFORMATION_MESSAGE);
                         } else {
                             JOptionPane.showMessageDialog(managementFrame,
-                                    Translator.getValue("somethingWrongUnexpected"), Translator.getValue("sms"),
+                                    Translator.getValue("somethingWrongUnexpected"), Translator.getValue("sdms"),
                                     JOptionPane.ERROR_MESSAGE);
                         }
                     }
@@ -212,7 +212,7 @@ public class ManagementView {
             }
         });
 
-        deleteButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        deleteButton.setFont(new Font("Verdana", Font.PLAIN, 16));
 
         // The button to press to add a student to the table
         JButton addButton = new JButton(Translator.getValue("add"));
@@ -263,7 +263,7 @@ public class ManagementView {
         });
         buttonsPanel.setLayout(new GridLayout(0, 5, 0, 0));
 
-        addButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        addButton.setFont(new Font("Verdana", Font.PLAIN, 16));
         buttonsPanel.add(addButton);
 
         // The button to press to update an information in the table
@@ -277,7 +277,7 @@ public class ManagementView {
             }
         });
 
-        updateButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        updateButton.setFont(new Font("Verdana", Font.PLAIN, 16));
         buttonsPanel.add(updateButton);
         buttonsPanel.add(deleteButton);
 
@@ -314,10 +314,10 @@ public class ManagementView {
             }
         });
 
-        disconnectButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        disconnectButton.setFont(new Font("Verdana", Font.PLAIN, 16));
         buttonsPanel.add(disconnectButton);
 
-        exitButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        exitButton.setFont(new Font("Verdana", Font.PLAIN, 16));
         buttonsPanel.add(exitButton);
 
         // The panel where user writes information about a student
@@ -329,7 +329,7 @@ public class ManagementView {
 
         // The text that informs the user where they have to write the student's name
         JLabel nameText = new JLabel(Translator.getValue("name"));
-        nameText.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        nameText.setFont(new Font("Verdana", Font.PLAIN, 16));
         nameText.setBounds(10, 22, 67, 19);
         studentPanel.add(nameText);
 
@@ -342,7 +342,7 @@ public class ManagementView {
 
         // The text that informs the user where they have to write the student's surname
         JLabel surnameText = new JLabel(Translator.getValue("surname"));
-        surnameText.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        surnameText.setFont(new Font("Verdana", Font.PLAIN, 16));
         surnameText.setBounds(10, 54, 67, 19);
         studentPanel.add(surnameText);
 
@@ -355,7 +355,7 @@ public class ManagementView {
 
         // The text that informs the user where they have to write the student's age
         JLabel ageText = new JLabel(Translator.getValue("age"));
-        ageText.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        ageText.setFont(new Font("Verdana", Font.PLAIN, 16));
         ageText.setBounds(10, 86, 67, 19);
         studentPanel.add(ageText);
 
@@ -369,14 +369,14 @@ public class ManagementView {
         // The text that informs the user where they have to write the student's
         // attended course
         JLabel courseText = new JLabel(Translator.getValue("course"));
-        courseText.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        courseText.setFont(new Font("Verdana", Font.PLAIN, 16));
         courseText.setBounds(10, 156, 67, 19);
         studentPanel.add(courseText);
 
         // The text that informs the user where they have to write the date when student
         // started attending the course
         JLabel startedDateText = new JLabel(Translator.getValue("started"));
-        startedDateText.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        startedDateText.setFont(new Font("Verdana", Font.PLAIN, 16));
         startedDateText.setBounds(10, 188, 67, 19);
         studentPanel.add(startedDateText);
 
@@ -390,14 +390,14 @@ public class ManagementView {
 
         // The text that informs the user where they have to select student's gender
         JLabel genderText = new JLabel(Translator.getValue("gender"));
-        genderText.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        genderText.setFont(new Font("Verdana", Font.PLAIN, 16));
         genderText.setBounds(10, 120, 67, 19);
         studentPanel.add(genderText);
 
         // Initializing the box where user selects the student's gender
         genderSelectionBox = new JComboBox();
         genderSelectionBox.setName("genderSelectionBox");
-        genderSelectionBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        genderSelectionBox.setFont(new Font("Verdana", Font.PLAIN, 16));
         genderSelectionBox.setModel(new DefaultComboBoxModel<>(Gender.values()));
         genderSelectionBox.setBounds(85, 120, 143, 22);
         studentPanel.add(genderSelectionBox);
@@ -434,7 +434,7 @@ public class ManagementView {
             }
         });
 
-        addFacultyButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        addFacultyButton.setFont(new Font("Verdana", Font.PLAIN, 16));
         addFacultyButton.setBounds(10, 220, 220, 30);
         studentPanel.add(addFacultyButton);
 
@@ -507,13 +507,13 @@ public class ManagementView {
             }
         });
 
-        addCourseButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        addCourseButton.setFont(new Font("Verdana", Font.PLAIN, 16));
         addCourseButton.setBounds(10, 260, 220, 30);
         studentPanel.add(addCourseButton);
 
         // Initializing the course selection box
         courseSelectionBox = new JComboBox();
-        courseSelectionBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        courseSelectionBox.setFont(new Font("Verdana", Font.PLAIN, 16));
         courseSelectionBox.setBounds(85, 154, 143, 22);
         updateCourses();
         studentPanel.add(courseSelectionBox);
@@ -573,7 +573,7 @@ public class ManagementView {
             }
         });
 
-        deleteFacultyButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        deleteFacultyButton.setFont(new Font("Verdana", Font.PLAIN, 16));
         deleteFacultyButton.setBounds(10, 300, 220, 30);
         studentPanel.add(deleteFacultyButton);
 
@@ -587,7 +587,7 @@ public class ManagementView {
             public void actionPerformed(ActionEvent e) {
                 table.clearSelection();
 
-                String course = (String) JOptionPane.showInputDialog(null, Translator.getValue("sms"),
+                String course = (String) JOptionPane.showInputDialog(null, Translator.getValue("sdms"),
                         Translator.getValue("chooseCourseDelete"), JOptionPane.QUESTION_MESSAGE, null,
                         DBHandler.getCourses(), DBHandler.getCourses()[0]);
 
@@ -632,7 +632,7 @@ public class ManagementView {
             }
         });
 
-        deleteCourseButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        deleteCourseButton.setFont(new Font("Verdana", Font.PLAIN, 16));
         deleteCourseButton.setBounds(10, 340, 220, 30);
         studentPanel.add(deleteCourseButton);
     }

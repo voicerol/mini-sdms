@@ -23,7 +23,7 @@ public class Translator {
      * The enum that represents the selected language
      */
    public enum Language {
-        ENG, RU
+        ENG, RUS
     }
     /**
      * HashMap that holds tags as keys and messages as values

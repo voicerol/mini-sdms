@@ -5,7 +5,7 @@
         <language description="English" lang="ENG" />
         <language description="Russian" lang="RU" />
     </languageList>
-    <key value="sms">
+    <key value="sdms">
         <val lang="ENG">Student Database Management System</val>
         <val lang="RU">Система Управления Базой данных Студентов</val>
     </key>
