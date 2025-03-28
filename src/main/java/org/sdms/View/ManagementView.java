@@ -130,7 +130,7 @@ public class ManagementView {
         managementFrame.setBounds(100, 100, 860, 540);
         managementFrame.setResizable(false);
         managementFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        managementFrame.setTitle(Translator.getValue("sms"));
+        managementFrame.setTitle(Translator.getValue("sdms"));
         managementFrame.getContentPane().setLayout(null);
 
         // The panel where students table is located

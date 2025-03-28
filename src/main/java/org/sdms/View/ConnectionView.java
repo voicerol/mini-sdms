@@ -20,34 +20,51 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
- * The class that holds the front-end connection part of the application and
- * manages the actions performed out there
- *
- *
+ * The ConnectionView class represents the front-end connection interface
+ * of the application, allowing users to connect to a database by providing
+ * login credentials and a database URL.
+ * <p>
+ * This class also handles the interaction logic for actions performed in
+ * the connection window, including the ability to change languages and
+ * connect to the database.
+ * </p>
  */
 public class ConnectionView {
 
     /**
-     * The contents of the connection window where you have to connect to a database
+     * The main JFrame that holds the connection window.
      */
     static JFrame connectionFrame;
 
     /**
-     * The text field that stores the login the user has written
+     * The text field where the user enters the login.
      */
     private JTextField loginField;
+
+    /**
+     * The password field where the user enters the password.
+     */
     private JPasswordField passwordField;
+
+    /**
+     * The text field where the user enters the database URL.
+     */
     private JTextField databaseUrlField;
 
     /**
-     * Launch the application.
+     * Launches the application.
+     * <p>
+     * This method sets the language and loads the messages from the XML
+     * before displaying the connection window.
+     * </p>
      */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
-                // Reading messages in dependance of the selected language(by default ENG)
+                // Set the language to English by default
                 Translator.setLanguage(Translator.Language.ENG);
 
+                // Load messages for the selected language
                 Translator.getMessagesFromXML();
 
                 try {
@@ -61,145 +78,141 @@ public class ConnectionView {
     }
 
     /**
-     * Create the application.
+     * Creates the connection view window and makes it visible.
      */
     public ConnectionView() {
         initialize();
-        // Make it visible in constructor, in order to make tests in
-        // ConnectionViewTest.java work
-        connectionFrame.setVisible(true);
+        connectionFrame.setVisible(true); // Make the window visible during construction
     }
 
     /**
-     * Initialize the contents of the frame.
+     * Initializes the contents of the connection window.
+     * <p>
+     * This method sets up the layout, adds the necessary components such as
+     * labels, text fields, and buttons, and defines the behavior for
+     * user interactions.
+     * </p>
      */
     private void initialize() {
+        // Create the main window
         connectionFrame = new JFrame();
         connectionFrame.setBounds(100, 100, 640, 480);
         connectionFrame.setResizable(false);
         connectionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         connectionFrame.setTitle(Translator.getValue("sdms"));
 
-        // The blue-colored panel in the top part of the application
+        // Create the blue-colored panel at the top
         JPanel topPanel = new JPanel();
         topPanel.setBackground(SystemColor.textHighlight);
         connectionFrame.getContentPane().add(topPanel, BorderLayout.NORTH);
 
-        // The text that informs the user that they have to connect to a database
+        // Label displaying the connection instruction
         JLabel connectText = new JLabel(Translator.getValue("connectText"));
         connectText.setForeground(new Color(255, 255, 255));
         connectText.setFont(new Font("Verdana", Font.PLAIN, 25));
         topPanel.add(connectText);
 
-        // The panel in the bottom part of the application
+        // Bottom panel where the login, password fields, and buttons will be
         JPanel bottomPanel = new JPanel();
         connectionFrame.getContentPane().add(bottomPanel, BorderLayout.CENTER);
 
-        // The text that informs the user where they have to type the login
+        // Label displaying the instruction to enter login
         JLabel loginText = new JLabel(Translator.getValue("loginText"));
         loginText.setBounds(68, 134, 162, 25);
         loginText.setFont(new Font("Verdana", Font.PLAIN, 12));
 
-        // The text that informs the user where they have to type the password
+        // Label displaying the instruction to enter password
         JLabel passwordText = new JLabel(Translator.getValue("passwordText"));
         passwordText.setBounds(68, 174, 162, 25);
         passwordText.setFont(new Font("Verdana", Font.PLAIN, 12));
 
-        // Initializes the text field where user writes the login
+        // Initialize the login text field
         loginField = new JTextField();
         loginField.setName("loginField");
         loginField.setBounds(240, 139, 330, 20);
         loginField.setColumns(10);
 
-        // Initializes the text field where user writes the password
+        // Initialize the password text field
         passwordField = new JPasswordField();
         passwordField.setName("passwordField");
         passwordField.setBounds(240, 179, 330, 20);
 
-        // The field where user should write the database url
+        // Initialize the database URL text field
         databaseUrlField = new JTextField();
         databaseUrlField.setName("databaseUrlField");
         databaseUrlField.setText("jdbc:mysql://localhost:3306/");
         databaseUrlField.setColumns(10);
         databaseUrlField.setBounds(240, 96, 330, 20);
 
-        // The text that informs user where they have to write database url
+        // Label displaying the instruction to enter database URL
         JLabel databaseUrlText = new JLabel(Translator.getValue("databaseUrlText"));
         databaseUrlText.setFont(new Font("Verdana", Font.PLAIN, 12));
         databaseUrlText.setBounds(68, 91, 162, 25);
 
-        // The button that changes the langauge of the application
+        // Button to change the application language
         JButton changeLanguageButton = new JButton(Translator.getValue("changeLanguage"));
-
-        // Actions to perform when "Change language" button is clicked
         changeLanguageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Используем полный путь для обращения к перечислению Language
                 Translator.Language selectedLanguage = (Translator.Language) JOptionPane.showInputDialog(
                         null,
                         Translator.getValue("sdms"),
                         Translator.getValue("selectLanguage"),
                         JOptionPane.QUESTION_MESSAGE,
                         null,
-                        Translator.Language.values(), // Исправлено: теперь правильно используем Translator.Language
-                        Translator.Language.ENG.toString() // Исправлено: теперь правильно используем Translator.Language
+                        Translator.Language.values(),
+                        Translator.Language.ENG.toString()
                 );
 
                 if (selectedLanguage != null) {
                     Translator.setLanguage(selectedLanguage);
-                } else {
-                    return;
                 }
 
+                // Reload messages based on the selected language
                 Translator.getMessagesFromXML();
-
                 connectionFrame.dispose();
                 new ConnectionView();
             }
         });
-
         changeLanguageButton.setFont(new Font("Verdana", Font.PLAIN, 12));
         changeLanguageButton.setBounds(480, 365, 135, 25);
         bottomPanel.add(changeLanguageButton);
 
-        // The button to press after the login and password were written
+        // Button to connect to the database
         JButton connectButton = new JButton(Translator.getValue("connectButton"));
         connectButton.setName("connectButton");
         connectButton.setBounds(221, 290, 190, 42);
         connectButton.setFont(new Font("Verdana", Font.PLAIN, 20));
 
-        // Execute connection and create a table when "Connect" button pressed
+        // Define action for the connect button
         connectButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // If one of the fields are empty then warn user about it
+                // If any of the fields are empty, show an error message
                 if (loginField.getText().equals("") || databaseUrlField.getText().equals("")) {
                     JOptionPane.showMessageDialog(new JFrame(), Translator.getValue("fillEmptyFields"),
                             Translator.getValue("error"), JOptionPane.ERROR_MESSAGE);
                 } else {
-                    // Get login, password and database url from fields and set them for database
-                    // handler
+                    // Set login, password, and database URL for DBHandler
                     DBHandler.setLogin(loginField.getText());
                     DBHandler.setPassword(passwordField.getText());
                     DBHandler.setDatabaseUrl(databaseUrlField.getText());
 
-                    // If table has\hasn't been successfully created then inform the user about that
+                    // Try to create the tables in the database
                     if (DBHandler.createTables()) {
                         JOptionPane.showMessageDialog(new JFrame(), Translator.getValue("connectionEstablished"),
                                 Translator.getValue("success"), JOptionPane.INFORMATION_MESSAGE);
 
-                        // Open a new window where you can manage the table and close the old one
+                        // Open the management view and close the connection window
                         ManagementView.main(null);
                         connectionFrame.dispose();
-
                     } else {
                         JOptionPane.showMessageDialog(new JFrame(), Translator.getValue("connectionNotEstablished"),
                                 Translator.getValue("error"), JOptionPane.ERROR_MESSAGE);
                     }
                 }
-
             }
         });
 
+        // Set the layout and add components to the bottom panel
         bottomPanel.setLayout(null);
         bottomPanel.add(passwordText);
         bottomPanel.add(loginText);
@@ -208,6 +221,5 @@ public class ConnectionView {
         bottomPanel.add(connectButton);
         bottomPanel.add(databaseUrlText);
         bottomPanel.add(databaseUrlField);
-
     }
 }
