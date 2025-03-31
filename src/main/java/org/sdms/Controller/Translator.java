@@ -111,7 +111,7 @@ public class Translator {
      *
      * @param key The key for which the translated message is required.
      * @return The translated message associated with the provided key, or {@code null}
-     *         if the key is not found in the messages.
+     * if the key is not found in the messages.
      */
     public static String getValue(final String key) {
         return messages.get(key);

@@ -7,7 +7,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -103,8 +102,8 @@ public class ConnectionView {
 
         // Create the blue-colored panel at the top
         JPanel topPanel = new JPanel();
-        topPanel.setBackground(SystemColor.textHighlight);
-        connectionFrame.getContentPane().add(topPanel, BorderLayout.NORTH);
+        topPanel.setBackground(new Color(5, 175, 5));
+        connectionFrame.getContentPane().add(topPanel, BorderLayout.PAGE_START);
 
         // Label displaying the connection instruction
         JLabel connectText = new JLabel(Translator.getValue("connectText"));
@@ -140,7 +139,7 @@ public class ConnectionView {
         // Initialize the database URL text field
         databaseUrlField = new JTextField();
         databaseUrlField.setName("databaseUrlField");
-        databaseUrlField.setText("jdbc:mysql://localhost:3306/");
+        databaseUrlField.setText("jdbc:mysql://localhost:3306/studentsdb");
         databaseUrlField.setColumns(10);
         databaseUrlField.setBounds(240, 96, 330, 20);
 
@@ -174,14 +173,22 @@ public class ConnectionView {
             }
         });
         changeLanguageButton.setFont(new Font("Verdana", Font.PLAIN, 12));
+        changeLanguageButton.setBackground(new Color(200, 200, 200));
+        changeLanguageButton.setOpaque(true);
+        changeLanguageButton.setBorderPainted(false);
+        changeLanguageButton.setFocusPainted(false);
         changeLanguageButton.setBounds(480, 365, 135, 25);
         bottomPanel.add(changeLanguageButton);
 
         // Button to connect to the database
         JButton connectButton = new JButton(Translator.getValue("connectButton"));
         connectButton.setName("connectButton");
-        connectButton.setBounds(221, 290, 190, 42);
         connectButton.setFont(new Font("Verdana", Font.PLAIN, 20));
+        connectButton.setBackground(new Color(100, 200, 100));
+        connectButton.setOpaque(true);
+        connectButton.setBorderPainted(false);
+        connectButton.setFocusPainted(false);
+        connectButton.setBounds(221, 290, 190, 42);
 
         // Define action for the connect button
         connectButton.addActionListener(new ActionListener() {

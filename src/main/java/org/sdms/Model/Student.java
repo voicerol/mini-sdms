@@ -10,6 +10,7 @@ public class Student {
     public enum Gender {
         Male, Female
     }
+
     /**
      * The name of the student
      */

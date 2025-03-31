@@ -19,8 +19,6 @@ import javax.swing.table.DefaultTableModel;
 /**
  * The class that allows access to a database for reading and writing data
  * purposes
- *
- *
  */
 public class DBHandler {
     /**
@@ -511,7 +509,8 @@ public class DBHandler {
             HashMap<String, Integer> coursesAttendees = new HashMap<String, Integer>();
 
             // Calculating the number of attendees to the courses
-            MAINLOOP: while (resultSet.next()) {
+            MAINLOOP:
+            while (resultSet.next()) {
                 String currentCourse = resultSet.getString("Course");
 
                 for (String key : coursesAttendees.keySet()) {

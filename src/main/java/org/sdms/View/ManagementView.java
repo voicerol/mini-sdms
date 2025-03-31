@@ -9,7 +9,6 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -25,7 +24,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -35,7 +33,6 @@ import javax.swing.table.TableRowSorter;
 /**
  * The class that holds the front-end table-management part of the application
  * and manages the actions performed out there
- *
  */
 public class ManagementView {
 
@@ -62,7 +59,7 @@ public class ManagementView {
     /**
      * The field where user should write the student's age
      */
-   public static JTextField ageField;
+    public static JTextField ageField;
 
     /**
      * The field where user should write the date when the student started attending
@@ -135,7 +132,7 @@ public class ManagementView {
 
         // The panel where students table is located
         JPanel tablePanel = new JPanel();
-        tablePanel.setBorder(new LineBorder(SystemColor.textHighlight, 5));
+        tablePanel.setBorder(new LineBorder(new Color(5, 175, 5), 3));
         tablePanel.setBounds(260, 10, 575, 395);
         managementFrame.getContentPane().add(tablePanel);
         tablePanel.setLayout(null);
@@ -149,11 +146,11 @@ public class ManagementView {
         table = new JTable();
         tableScrollPane.setViewportView(table);
         table.setColumnSelectionAllowed(true);
-        table.setModel(new DefaultTableModel(new Object[][] {},
-                new String[] { Translator.getValue("ID"), Translator.getValue("name"), Translator.getValue("surname"),
+        table.setModel(new DefaultTableModel(new Object[][]{},
+                new String[]{Translator.getValue("ID"), Translator.getValue("name"), Translator.getValue("surname"),
                         Translator.getValue("age"), Translator.getValue("gender"), Translator.getValue("course"),
-                        Translator.getValue("started"), Translator.getValue("graduation") }) {
-            boolean[] columnEditables = new boolean[] { false, true, true, true, true, false, false, false };
+                        Translator.getValue("started"), Translator.getValue("graduation")}) {
+            boolean[] columnEditables = new boolean[]{false, true, true, true, true, false, false, false};
 
             public boolean isCellEditable(int row, int column) {
                 return columnEditables[column];
@@ -178,8 +175,8 @@ public class ManagementView {
 
         // The panel where all buttons are located
         JPanel buttonsPanel = new JPanel();
-        buttonsPanel.setBorder(new LineBorder(new Color(0, 0, 0, 0), 5));
-        buttonsPanel.setBackground(UIManager.getColor("Button.background"));
+        buttonsPanel.setBorder(new LineBorder(new Color(5, 175, 5), 3));
+        buttonsPanel.setBackground(new Color(100, 200, 100));
         buttonsPanel.setBounds(10, 415, 825, 80);
         managementFrame.getContentPane().add(buttonsPanel);
 
@@ -213,6 +210,7 @@ public class ManagementView {
         });
 
         deleteButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        deleteButton.setBackground((new Color(100, 200, 100)));
 
         // The button to press to add a student to the table
         JButton addButton = new JButton(Translator.getValue("add"));
@@ -264,6 +262,7 @@ public class ManagementView {
         buttonsPanel.setLayout(new GridLayout(0, 5, 0, 0));
 
         addButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        addButton.setBackground((new Color(100, 200, 100)));
         buttonsPanel.add(addButton);
 
         // The button to press to update an information in the table
@@ -278,6 +277,7 @@ public class ManagementView {
         });
 
         updateButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        updateButton.setBackground((new Color(100, 200, 100)));
         buttonsPanel.add(updateButton);
         buttonsPanel.add(deleteButton);
 
@@ -315,14 +315,16 @@ public class ManagementView {
         });
 
         disconnectButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        disconnectButton.setBackground((new Color(100, 200, 100)));
         buttonsPanel.add(disconnectButton);
 
         exitButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        exitButton.setBackground((new Color(100, 200, 100)));
         buttonsPanel.add(exitButton);
 
         // The panel where user writes information about a student
         JPanel studentPanel = new JPanel();
-        studentPanel.setBorder(new LineBorder(SystemColor.textHighlight, 5));
+        studentPanel.setBorder(new LineBorder(new Color(5, 175, 5), 3));
         studentPanel.setBounds(10, 10, 240, 395);
         managementFrame.getContentPane().add(studentPanel);
         studentPanel.setLayout(null);
@@ -435,6 +437,7 @@ public class ManagementView {
         });
 
         addFacultyButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        addFacultyButton.setBackground(new Color(200, 200, 200));
         addFacultyButton.setBounds(10, 220, 220, 30);
         studentPanel.add(addFacultyButton);
 
@@ -508,6 +511,7 @@ public class ManagementView {
         });
 
         addCourseButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        addCourseButton.setBackground(new Color(200, 200, 200));
         addCourseButton.setBounds(10, 260, 220, 30);
         studentPanel.add(addCourseButton);
 
@@ -574,6 +578,7 @@ public class ManagementView {
         });
 
         deleteFacultyButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        deleteFacultyButton.setBackground(new Color(200, 200, 200));
         deleteFacultyButton.setBounds(10, 300, 220, 30);
         studentPanel.add(deleteFacultyButton);
 
@@ -633,6 +638,7 @@ public class ManagementView {
         });
 
         deleteCourseButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        deleteCourseButton.setBackground(new Color(200, 200, 200));
         deleteCourseButton.setBounds(10, 340, 220, 30);
         studentPanel.add(deleteCourseButton);
     }
