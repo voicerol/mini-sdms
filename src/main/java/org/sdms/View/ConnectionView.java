@@ -108,7 +108,7 @@ public class ConnectionView {
         // Label displaying the connection instruction
         JLabel connectText = new JLabel(Translator.getValue("connectText"));
         connectText.setForeground(new Color(255, 255, 255));
-        connectText.setFont(new Font("Verdana", Font.PLAIN, 25));
+        connectText.setFont(new Font("Arial", Font.PLAIN, 25));
         topPanel.add(connectText);
 
         // Bottom panel where the login, password fields, and buttons will be
@@ -118,12 +118,12 @@ public class ConnectionView {
         // Label displaying the instruction to enter login
         JLabel loginText = new JLabel(Translator.getValue("loginText"));
         loginText.setBounds(68, 134, 162, 25);
-        loginText.setFont(new Font("Verdana", Font.PLAIN, 12));
+        loginText.setFont(new Font("Arial", Font.PLAIN, 12));
 
         // Label displaying the instruction to enter password
         JLabel passwordText = new JLabel(Translator.getValue("passwordText"));
         passwordText.setBounds(68, 174, 162, 25);
-        passwordText.setFont(new Font("Verdana", Font.PLAIN, 12));
+        passwordText.setFont(new Font("Arial", Font.PLAIN, 12));
 
         // Initialize the login text field
         loginField = new JTextField();
@@ -145,7 +145,7 @@ public class ConnectionView {
 
         // Label displaying the instruction to enter database URL
         JLabel databaseUrlText = new JLabel(Translator.getValue("databaseUrlText"));
-        databaseUrlText.setFont(new Font("Verdana", Font.PLAIN, 12));
+        databaseUrlText.setFont(new Font("Arial", Font.PLAIN, 12));
         databaseUrlText.setBounds(68, 91, 162, 25);
 
         // Button to change the application language
@@ -172,7 +172,7 @@ public class ConnectionView {
                 new ConnectionView();
             }
         });
-        changeLanguageButton.setFont(new Font("Verdana", Font.PLAIN, 12));
+        changeLanguageButton.setFont(new Font("Arial", Font.PLAIN, 12));
         changeLanguageButton.setBackground(new Color(200, 200, 200));
         changeLanguageButton.setOpaque(true);
         changeLanguageButton.setBorderPainted(false);
@@ -183,7 +183,7 @@ public class ConnectionView {
         // Button to connect to the database
         JButton connectButton = new JButton(Translator.getValue("connectButton"));
         connectButton.setName("connectButton");
-        connectButton.setFont(new Font("Verdana", Font.PLAIN, 20));
+        connectButton.setFont(new Font("Arial", Font.PLAIN, 20));
         connectButton.setBackground(new Color(100, 200, 100));
         connectButton.setOpaque(true);
         connectButton.setBorderPainted(false);

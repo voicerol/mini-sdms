@@ -209,7 +209,7 @@ public class ManagementView {
             }
         });
 
-        deleteButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        deleteButton.setFont(new Font("Arial", Font.PLAIN, 16));
         deleteButton.setBackground((new Color(100, 200, 100)));
 
         // The button to press to add a student to the table
@@ -261,7 +261,7 @@ public class ManagementView {
         });
         buttonsPanel.setLayout(new GridLayout(0, 5, 0, 0));
 
-        addButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        addButton.setFont(new Font("Arial", Font.PLAIN, 16));
         addButton.setBackground((new Color(100, 200, 100)));
         buttonsPanel.add(addButton);
 
@@ -276,7 +276,7 @@ public class ManagementView {
             }
         });
 
-        updateButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        updateButton.setFont(new Font("Arial", Font.PLAIN, 16));
         updateButton.setBackground((new Color(100, 200, 100)));
         buttonsPanel.add(updateButton);
         buttonsPanel.add(deleteButton);
@@ -314,11 +314,11 @@ public class ManagementView {
             }
         });
 
-        disconnectButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        disconnectButton.setFont(new Font("Arial", Font.PLAIN, 16));
         disconnectButton.setBackground((new Color(100, 200, 100)));
         buttonsPanel.add(disconnectButton);
 
-        exitButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        exitButton.setFont(new Font("Arial", Font.PLAIN, 16));
         exitButton.setBackground((new Color(100, 200, 100)));
         buttonsPanel.add(exitButton);
 
@@ -331,7 +331,7 @@ public class ManagementView {
 
         // The text that informs the user where they have to write the student's name
         JLabel nameText = new JLabel(Translator.getValue("name"));
-        nameText.setFont(new Font("Verdana", Font.PLAIN, 16));
+        nameText.setFont(new Font("Arial", Font.PLAIN, 16));
         nameText.setBounds(10, 22, 67, 19);
         studentPanel.add(nameText);
 
@@ -344,7 +344,7 @@ public class ManagementView {
 
         // The text that informs the user where they have to write the student's surname
         JLabel surnameText = new JLabel(Translator.getValue("surname"));
-        surnameText.setFont(new Font("Verdana", Font.PLAIN, 16));
+        surnameText.setFont(new Font("Arial", Font.PLAIN, 16));
         surnameText.setBounds(10, 54, 67, 19);
         studentPanel.add(surnameText);
 
@@ -357,7 +357,7 @@ public class ManagementView {
 
         // The text that informs the user where they have to write the student's age
         JLabel ageText = new JLabel(Translator.getValue("age"));
-        ageText.setFont(new Font("Verdana", Font.PLAIN, 16));
+        ageText.setFont(new Font("Arial", Font.PLAIN, 16));
         ageText.setBounds(10, 86, 67, 19);
         studentPanel.add(ageText);
 
@@ -371,14 +371,14 @@ public class ManagementView {
         // The text that informs the user where they have to write the student's
         // attended course
         JLabel courseText = new JLabel(Translator.getValue("course"));
-        courseText.setFont(new Font("Verdana", Font.PLAIN, 16));
+        courseText.setFont(new Font("Arial", Font.PLAIN, 16));
         courseText.setBounds(10, 156, 67, 19);
         studentPanel.add(courseText);
 
         // The text that informs the user where they have to write the date when student
         // started attending the course
         JLabel startedDateText = new JLabel(Translator.getValue("started"));
-        startedDateText.setFont(new Font("Verdana", Font.PLAIN, 16));
+        startedDateText.setFont(new Font("Arial", Font.PLAIN, 16));
         startedDateText.setBounds(10, 188, 67, 19);
         studentPanel.add(startedDateText);
 
@@ -392,14 +392,14 @@ public class ManagementView {
 
         // The text that informs the user where they have to select student's gender
         JLabel genderText = new JLabel(Translator.getValue("gender"));
-        genderText.setFont(new Font("Verdana", Font.PLAIN, 16));
+        genderText.setFont(new Font("Arial", Font.PLAIN, 16));
         genderText.setBounds(10, 120, 67, 19);
         studentPanel.add(genderText);
 
         // Initializing the box where user selects the student's gender
         genderSelectionBox = new JComboBox();
         genderSelectionBox.setName("genderSelectionBox");
-        genderSelectionBox.setFont(new Font("Verdana", Font.PLAIN, 16));
+        genderSelectionBox.setFont(new Font("Arial", Font.PLAIN, 16));
         genderSelectionBox.setModel(new DefaultComboBoxModel<>(Gender.values()));
         genderSelectionBox.setBounds(85, 120, 143, 22);
         studentPanel.add(genderSelectionBox);
@@ -436,7 +436,7 @@ public class ManagementView {
             }
         });
 
-        addFacultyButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        addFacultyButton.setFont(new Font("Arial", Font.PLAIN, 16));
         addFacultyButton.setBackground(new Color(200, 200, 200));
         addFacultyButton.setBounds(10, 220, 220, 30);
         studentPanel.add(addFacultyButton);
@@ -510,14 +510,14 @@ public class ManagementView {
             }
         });
 
-        addCourseButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        addCourseButton.setFont(new Font("Arial", Font.PLAIN, 16));
         addCourseButton.setBackground(new Color(200, 200, 200));
         addCourseButton.setBounds(10, 260, 220, 30);
         studentPanel.add(addCourseButton);
 
         // Initializing the course selection box
         courseSelectionBox = new JComboBox();
-        courseSelectionBox.setFont(new Font("Verdana", Font.PLAIN, 16));
+        courseSelectionBox.setFont(new Font("Arial", Font.PLAIN, 16));
         courseSelectionBox.setBounds(85, 154, 143, 22);
         updateCourses();
         studentPanel.add(courseSelectionBox);
@@ -577,7 +577,7 @@ public class ManagementView {
             }
         });
 
-        deleteFacultyButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        deleteFacultyButton.setFont(new Font("Arial", Font.PLAIN, 16));
         deleteFacultyButton.setBackground(new Color(200, 200, 200));
         deleteFacultyButton.setBounds(10, 300, 220, 30);
         studentPanel.add(deleteFacultyButton);
@@ -637,7 +637,7 @@ public class ManagementView {
             }
         });
 
-        deleteCourseButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        deleteCourseButton.setFont(new Font("Arial", Font.PLAIN, 16));
         deleteCourseButton.setBackground(new Color(200, 200, 200));
         deleteCourseButton.setBounds(10, 340, 220, 30);
         studentPanel.add(deleteCourseButton);
