@@ -121,6 +121,10 @@
         <val lang="ENG">Add course</val>
         <val lang="RU">Добавить курс</val>
     </key>
+    <key value="semester">
+        <val lang="ENG">Semester</val>
+        <val lang="RU">Семестр</val>
+    </key>
     <key value="deleteFaculty">
         <val lang="ENG">Delete faculty</val>
         <val lang="RU">Удалить факультет</val>

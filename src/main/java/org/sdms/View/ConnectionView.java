@@ -33,7 +33,7 @@ public class ConnectionView {
     /**
      * The main JFrame that holds the connection window.
      */
-    static JFrame connectionFrame;
+    public static JFrame connectionFrame;
 
     /**
      * The text field where the user enters the login.
@@ -48,7 +48,7 @@ public class ConnectionView {
     /**
      * The text field where the user enters the database URL.
      */
-    private JTextField databaseUrlField;
+//    private JTextField databaseUrlField;
 
     /**
      * Launches the application.
@@ -136,12 +136,12 @@ public class ConnectionView {
         passwordField.setName("passwordField");
         passwordField.setBounds(240, 179, 330, 20);
 
-        // Initialize the database URL text field
-        databaseUrlField = new JTextField();
-        databaseUrlField.setName("databaseUrlField");
-        databaseUrlField.setText("jdbc:mysql://localhost:3306/studentsdb");
-        databaseUrlField.setColumns(10);
-        databaseUrlField.setBounds(240, 96, 330, 20);
+//        // Initialize the database URL text field
+//        databaseUrlField = new JTextField();
+//        databaseUrlField.setName("databaseUrlField");
+//        databaseUrlField.setText("jdbc:mysql://localhost:3306/studentsdb");
+//        databaseUrlField.setColumns(10);
+//        databaseUrlField.setBounds(240, 96, 330, 20);
 
         // Label displaying the instruction to enter database URL
         JLabel databaseUrlText = new JLabel(Translator.getValue("databaseUrlText"));
@@ -194,14 +194,14 @@ public class ConnectionView {
         connectButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // If any of the fields are empty, show an error message
-                if (loginField.getText().equals("") || databaseUrlField.getText().equals("")) {
+                if (loginField.getText().equals("")) {
                     JOptionPane.showMessageDialog(new JFrame(), Translator.getValue("fillEmptyFields"),
                             Translator.getValue("error"), JOptionPane.ERROR_MESSAGE);
                 } else {
                     // Set login, password, and database URL for DBHandler
                     DBHandler.setLogin(loginField.getText());
                     DBHandler.setPassword(passwordField.getText());
-                    DBHandler.setDatabaseUrl(databaseUrlField.getText());
+//                    DBHandler.setDatabaseUrl(databaseUrlField.getText());
 
                     // Try to create the tables in the database
                     if (DBHandler.createTables()) {
@@ -226,7 +226,7 @@ public class ConnectionView {
         bottomPanel.add(passwordField);
         bottomPanel.add(loginField);
         bottomPanel.add(connectButton);
-        bottomPanel.add(databaseUrlText);
-        bottomPanel.add(databaseUrlField);
+//        bottomPanel.add(databaseUrlText);
+//        bottomPanel.add(databaseUrlField);
     }
 }

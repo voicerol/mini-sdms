@@ -78,6 +78,11 @@ public class ManagementView {
     public static JComboBox courseSelectionBox;
 
     /**
+     * The box that allows user to select the semester for a student
+     */
+    public static JComboBox semesterSelectionBox;
+
+    /**
      * Launch the application.
      */
     public static void main(String[] args) {
@@ -129,6 +134,8 @@ public class ManagementView {
         managementFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         managementFrame.setTitle(Translator.getValue("sdms"));
         managementFrame.getContentPane().setLayout(null);
+        managementFrame.setLocationRelativeTo(null);
+
 
         // The panel where students table is located
         JPanel tablePanel = new JPanel();
@@ -142,6 +149,7 @@ public class ManagementView {
         tableScrollPane.setBounds(10, 10, 555, 375);
         tablePanel.add(tableScrollPane);
 
+
         // Initializing the table and setting its model
         table = new JTable();
         tableScrollPane.setViewportView(table);
@@ -149,8 +157,8 @@ public class ManagementView {
         table.setModel(new DefaultTableModel(new Object[][]{},
                 new String[]{Translator.getValue("ID"), Translator.getValue("name"), Translator.getValue("surname"),
                         Translator.getValue("age"), Translator.getValue("gender"), Translator.getValue("course"),
-                        Translator.getValue("started"), Translator.getValue("graduation")}) {
-            boolean[] columnEditables = new boolean[]{false, true, true, true, true, false, false, false};
+                        Translator.getValue("started"), Translator.getValue("graduation"), Translator.getValue("semester")}) {
+            boolean[] columnEditables = new boolean[]{false, true, true, true, true, false, false, false, true};
 
             public boolean isCellEditable(int row, int column) {
                 return columnEditables[column];
@@ -368,12 +376,51 @@ public class ManagementView {
         ageField.setBounds(85, 83, 143, 22);
         studentPanel.add(ageField);
 
+        // The text that informs the user where they have to select student's gender
+        JLabel genderText = new JLabel(Translator.getValue("gender"));
+        genderText.setFont(new Font("Arial", Font.PLAIN, 16));
+        genderText.setBounds(10, 120, 67, 19);
+        studentPanel.add(genderText);
+
+        // Initializing the box where user selects the student's gender
+        genderSelectionBox = new JComboBox();
+        genderSelectionBox.setName("genderSelectionBox");
+        genderSelectionBox.setFont(new Font("Arial", Font.PLAIN, 16));
+        genderSelectionBox.setModel(new DefaultComboBoxModel<>(Gender.values()));
+        genderSelectionBox.setBounds(85, 120, 143, 22);
+        studentPanel.add(genderSelectionBox);
+
+        // The text that informs the user where they have to select student's semester
+        JLabel semesterText = new JLabel(Translator.getValue("semester"));
+        semesterText.setFont(new Font("Arial", Font.PLAIN, 16));
+        semesterText.setBounds(10, 220, 67, 19);
+        studentPanel.add(semesterText);
+
+        // Initializing the box where user selects the student's semester
+        semesterSelectionBox = new JComboBox();
+        semesterSelectionBox.setName("semesterSelectionBox");
+        semesterSelectionBox.setFont(new Font("Arial", Font.PLAIN, 16));
+        DefaultComboBoxModel<Integer> semesterModel = new DefaultComboBoxModel<>();
+        for (int i = 1; i <= 8; i++) {
+            semesterModel.addElement(i);
+        }
+        semesterSelectionBox.setModel(semesterModel);
+        semesterSelectionBox.setBounds(85, 220, 143, 22);
+        studentPanel.add(semesterSelectionBox);
+
         // The text that informs the user where they have to write the student's
         // attended course
         JLabel courseText = new JLabel(Translator.getValue("course"));
         courseText.setFont(new Font("Arial", Font.PLAIN, 16));
         courseText.setBounds(10, 156, 67, 19);
         studentPanel.add(courseText);
+
+        // Initializing the course selection box
+        courseSelectionBox = new JComboBox();
+        courseSelectionBox.setFont(new Font("Arial", Font.PLAIN,16));
+        courseSelectionBox.setBounds(85, 154, 143, 22);
+        updateCourses();
+        studentPanel.add(courseSelectionBox);
 
         // The text that informs the user where they have to write the date when student
         // started attending the course
@@ -389,20 +436,6 @@ public class ManagementView {
         startedDateField.setBounds(85, 185, 143, 22);
         startedDateField.setText(Translator.getValue("dateFormat"));
         studentPanel.add(startedDateField);
-
-        // The text that informs the user where they have to select student's gender
-        JLabel genderText = new JLabel(Translator.getValue("gender"));
-        genderText.setFont(new Font("Arial", Font.PLAIN, 16));
-        genderText.setBounds(10, 120, 67, 19);
-        studentPanel.add(genderText);
-
-        // Initializing the box where user selects the student's gender
-        genderSelectionBox = new JComboBox();
-        genderSelectionBox.setName("genderSelectionBox");
-        genderSelectionBox.setFont(new Font("Arial", Font.PLAIN, 16));
-        genderSelectionBox.setModel(new DefaultComboBoxModel<>(Gender.values()));
-        genderSelectionBox.setBounds(85, 120, 143, 22);
-        studentPanel.add(genderSelectionBox);
 
         // Button that adds a new faculty
         JButton addFacultyButton = new JButton(Translator.getValue("addFaculty"));
@@ -438,7 +471,7 @@ public class ManagementView {
 
         addFacultyButton.setFont(new Font("Arial", Font.PLAIN, 16));
         addFacultyButton.setBackground(new Color(200, 200, 200));
-        addFacultyButton.setBounds(10, 220, 220, 30);
+        addFacultyButton.setBounds(10, 260, 220, 30);
         studentPanel.add(addFacultyButton);
 
         // Button that adds a new course
@@ -512,15 +545,8 @@ public class ManagementView {
 
         addCourseButton.setFont(new Font("Arial", Font.PLAIN, 16));
         addCourseButton.setBackground(new Color(200, 200, 200));
-        addCourseButton.setBounds(10, 260, 220, 30);
+        addCourseButton.setBounds(10, 300, 220, 30);
         studentPanel.add(addCourseButton);
-
-        // Initializing the course selection box
-        courseSelectionBox = new JComboBox();
-        courseSelectionBox.setFont(new Font("Arial", Font.PLAIN, 16));
-        courseSelectionBox.setBounds(85, 154, 143, 22);
-        updateCourses();
-        studentPanel.add(courseSelectionBox);
 
         // Button that allows to delete a faculty
         JButton deleteFacultyButton = new JButton(Translator.getValue("deleteFaculty"));
@@ -579,7 +605,7 @@ public class ManagementView {
 
         deleteFacultyButton.setFont(new Font("Arial", Font.PLAIN, 16));
         deleteFacultyButton.setBackground(new Color(200, 200, 200));
-        deleteFacultyButton.setBounds(10, 300, 220, 30);
+        deleteFacultyButton.setBounds(10, 340, 220, 30);
         studentPanel.add(deleteFacultyButton);
 
         // Button that allows to delete a course
@@ -639,7 +665,7 @@ public class ManagementView {
 
         deleteCourseButton.setFont(new Font("Arial", Font.PLAIN, 16));
         deleteCourseButton.setBackground(new Color(200, 200, 200));
-        deleteCourseButton.setBounds(10, 340, 220, 30);
+        deleteCourseButton.setBounds(10, 380, 220, 30);
         studentPanel.add(deleteCourseButton);
     }
 }

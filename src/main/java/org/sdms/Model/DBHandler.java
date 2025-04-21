@@ -177,10 +177,11 @@ public class DBHandler {
             Statement statement = connection.createStatement();
 
             if (!checkIfTableExists(studentsTable)) {
-                // Creating a table of students
+                // Creating a table of students with the new 'Semester' column
                 statement.executeUpdate("create table " + studentsTable + "(ID INTEGER not NULL AUTO_INCREMENT, "
                         + " Name varchar(50), " + "Surname varchar(50), " + "Age INTEGER, " + "Gender varchar(6), "
                         + "Course varchar(50), " + "Started varchar(25),  " + "Graduation varchar(25), "
+                        + "Semester INTEGER, " // Added Semester column
                         + "PRIMARY KEY ( id ))");
             }
 
@@ -220,7 +221,8 @@ public class DBHandler {
         try {
             Connection connection = DriverManager.getConnection(databaseUrl, login, password);
             PreparedStatement preparedStatement = connection.prepareStatement("insert into " + studentsTable
-                    + " (Name, Surname, Age, Gender, Course, Started, Graduation) values " + "(?, ?, ?, ?, ?, ?, ?)");
+                    + " (Name, Surname, Age, Gender, Course, Started, Graduation, Semester) values "
+                    + "(?, ?, ?, ?, ?, ?, ?, ?)"); // Added Semester
 
             // Getting the duration of the course in order to calculate Graduation date
             // field
@@ -244,6 +246,7 @@ public class DBHandler {
 
             LocalDate graduationDate = startedDate.plusMonths(courseDuration);
             preparedStatement.setString(7, graduationDate.toString());
+            preparedStatement.setInt(8, Integer.parseInt(ManagementView.semesterSelectionBox.getSelectedItem().toString())); // Added Semester
 
             preparedStatement.executeUpdate();
 
@@ -300,6 +303,7 @@ public class DBHandler {
                     columnData.add(resultSet.getString("Course"));
                     columnData.add(resultSet.getString("Started"));
                     columnData.add(resultSet.getString("Graduation"));
+                    columnData.add(resultSet.getString("Semester")); // Added Semester
                 }
 
                 recordTable.addRow(columnData);
@@ -611,7 +615,7 @@ public class DBHandler {
      * Searches if there is already an element with a certain name in a certain table
      *
      * @param tableName - The table in which user wants to check if element already
-     *                  exists
+     * exists
      * @param name      - The name of the element user wants to check
      * @return true if the element has been found, false otherwise
      */
@@ -647,9 +651,9 @@ public class DBHandler {
      * Gets the number of attendees in a course or faculty
      *
      * @param tableName - The table in which user wants to check the number of
-     *                  attendees(Faculties/Courses table)
+     * attendees(Faculties/Courses table)
      * @param element   - The course/faculty name in which user wants to check the
-     *                  number of attendees
+     * number of attendees
      * @return The number of attendees in a faculty/course.
      */
     public static int getNumberOfAttendees(final String tableName, final String element) {
@@ -859,6 +863,11 @@ public class DBHandler {
                 } else if (selectedColumn == 4) {
                     statement.executeUpdate("update " + studentsTable + " set Gender = " + "\""
                             + ManagementView.table.getValueAt(selectedRow, selectedColumn).toString() + "\""
+                            + " where id = "
+                            + Integer.parseInt(ManagementView.table.getValueAt(selectedRow, 0).toString()));
+                } else if (selectedColumn == 8) { // Handling the new 'Semester' column
+                    statement.executeUpdate("update " + studentsTable + " set Semester = "
+                            + Integer.parseInt(ManagementView.table.getValueAt(selectedRow, selectedColumn).toString())
                             + " where id = "
                             + Integer.parseInt(ManagementView.table.getValueAt(selectedRow, 0).toString()));
                 }
